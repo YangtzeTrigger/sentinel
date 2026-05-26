@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service | SENTINEL-1156</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Exo+2:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --deep-space:    #020817;
+      --navy-dark:     #0A1628;
+      --electric-blue: #1D4ED8;
+      --neon-blue:     #3B82F6;
+      --glow-blue:     #60A5FA;
+      --frontier-gold: #D4AF37;
+      --gold-bright:   #F59E0B;
+      --star-white:    #E2E8F0;
+      --muted:         #64748B;
+      --border:        rgba(212,175,55,0.2);
+      --text-body:     #94A3B8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--deep-space);
+      color: var(--star-white);
+      font-family: 'Exo 2', sans-serif;
+      min-height: 100vh;
+    }
+    nav {
+      background: rgba(2,8,23,0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    nav .inner {
+      max-width: 900px;
+      margin: 0 auto;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--frontier-gold);
+      text-decoration: none;
+    }
+    .nav-brand span { color: var(--glow-blue); }
+    .nav-back {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--glow-blue); }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+    .doc-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 40px;
+      margin-bottom: 48px;
+    }
+    .doc-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--neon-blue);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .doc-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--star-white);
+      margin-bottom: 12px;
+    }
+    .doc-title span { color: var(--frontier-gold); }
+    .doc-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+    .doc-intro {
+      background: rgba(29,78,216,0.07);
+      border-left: 3px solid var(--neon-blue);
+      padding: 20px 24px;
+      margin-bottom: 48px;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-body);
+    }
+    .article {
+      margin-bottom: 40px;
+    }
+    .article-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--neon-blue);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .article h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--frontier-gold);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    .article p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-body);
+      margin-bottom: 12px;
+    }
+    .article ul, .article ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    .article li {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-body);
+      margin-bottom: 6px;
+    }
+    .article li::marker { color: var(--neon-blue); }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+    .contact-box {
+      background: rgba(10,22,40,0.8);
+      border: 1px solid var(--border);
+      padding: 28px 32px;
+      margin-top: 48px;
+    }
+    .contact-box h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--frontier-gold);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .contact-box p {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-body);
+    }
+    .contact-box a { color: var(--glow-blue); text-decoration: none; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      background: rgba(2,8,23,0.9);
+    }
+    footer .inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    footer .brand {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 12px;
+      color: var(--frontier-gold);
+      letter-spacing: 0.12em;
+    }
+    footer .links { display: flex; gap: 20px; }
+    footer .links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    footer .links a:hover { color: var(--glow-blue); }
+    footer .copy {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="inner">
+      <a href="/" class="nav-brand">SENTINEL<span>-1156</span></a>
+      <a href="/" class="nav-back">← Back to Hub</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="doc-header">
+      <div class="doc-eyebrow">// Legal Document · Codex-01</div>
+      <h1 class="doc-title"><span>Frontier</span> Codex<br/>Terms of Service</h1>
+      <div class="doc-meta">
+        Effective Date: 1 June 2026 &nbsp;·&nbsp; Last Updated: 1 June 2026 &nbsp;·&nbsp; Version 1.0
+      </div>
+    </div>
+
+    <div class="doc-intro">
+      These Terms of Service govern your use of the Sentinel-1156 Discord bot and the Server 1156 Galactic Frontier Hub Discord community, operated under the AegisNet project (aegisnet.org.uk). By joining the server or interacting with the Sentinel-1156 bot, you agree to these terms. If you do not agree, please leave the server.
+    </div>
+
+    <div class="article">
+      <div class="article-number">// Article I</div>
+      <h2>Definitions</h2>
+      <p>For the purposes of this document:</p>
+      <ul>
+        <li><strong>"The Server"</strong> refers to the Server 1156 Galactic Frontier Hub Discord community.</li>
+        <li><strong>"The Bot"</strong> refers to the Sentinel-1156 Discord application and its automated functions.</li>
+        <li><strong>"The Operator"</strong> refers to the server owner and AegisNet project.</li>
+        <li><strong>"Member"</strong> refers to any Discord user who has joined the Server.</li>
+        <li><strong>"Guild District"</strong> refers to any role-gated private section allocated to an in-game guild.</li>
+        <li><strong>"Frontier Codex"</strong> refers to the community rules as posted in the #oath-and-law channel.</li>
+      </ul>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="article">
+      <div class="article-number">// Article II</div>
+      <h2>Eligibility</h2>
+      <p>To participate in the Server you must:</p>
+      <ul>
+        <li>Be at least 13 years of age, in compliance with Discord's Terms of Service.</li>
+        <li>Hold a valid Discord account in good standing.</li>
+        <li>Play on or have an interest in game Server 1156.</li>
+        <li>Agree to abide by both these Terms and Discord's own Terms of Service and Community Guidelines.</li>
+      </ul>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="article">
+      <div class="article-number">// Article III</div>
+      <h2>Community Conduct</h2>
+      <p>All Members are expected to uphold the values of Honour, Discipline, and Unity. The following are strictly prohibited:</p>
+      <ul>
+        <li>Harassment, hate speech, discrimination, or targeted abuse of any Member.</li>
+        <li>Sharing illegal content of any kind.</li>
+        <li>Spamming, advertising, or posting unsolicited promotional content.</li>
+        <li>Impersonating other Members, guild leaders, or server staff.</li>
+        <li>Sharing another Member's personal information without consent.</li>
+        <li>Attempting to disrupt, raid, or damage the Server or its systems.</li>
+        <li>Posting content that violates Discord's Community Guidelines.</li>
+        <li>Bringing real-world personal conflicts or in-game rivalries into community spaces.</li>
+      </ul>
+      <p>Guild rivalries and competition are celebrated — but they stay in the game. The Server is neutral ground.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="article">
+      <div class="article-number">// Article IV</div>
+      <h2>Guild Districts</h2>
+      <p>Guild Districts are private channel sections allocated to recognised guilds of Server 1156. Guild leaders who claim a district agree to:</p>
+      <ul>
+        <li>Manage their district responsibly and in accordance with these Terms.</li>
+        <li>Ensure their guild members comply with the Frontier Codex.</li>
+        <li>Acknowledge that the Operator retains the right to revoke a district if the guild violates these Terms.</li>
+        <li>Not use their district to organise activity that harms other Members or the wider Server community.</li>
+      </ul>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="article">
+      <div class="article-number">// Article V</div>
+      <h2>The Sentinel-1156 Bot</h2>
+      <p>The Sentinel-1156 bot performs automated functions including onboarding, role assignment, moderation, and event management. By interacting with the Bot you acknowledge that:</p>
+      <ul>
+        <li>The Bot may log moderation actions (warnings, mutes, bans) for server safety purposes.</li>
+        <li>The Bot does not store personally identifiable information beyond your Discord User ID and username.</li>
+        <li>Automated moderation decisions can be appealed by contacting a Frontier Admin.</li>
+        <li>The Operator is not liable for Bot downtime, errors, or unexpected behaviour.</li>
+      </ul>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="article">
+      <div class="article-number">// Article VI</div>
+      <h2>Moderation and Enforcement</h2>
+      <p>The Operator and appointed Wardens reserve the right to:</p>
+      <ul>
+        <li>Issue warnings, mutes, kicks, or permanent bans for violations of these Terms.</li>
+        <li>Remove content that violates these Terms without prior notice.</li>
+        <li>Revoke guild districts or roles for misconduct.</li>
+        <li>Modify the Frontier Codex rules at any time, with notice posted in #high-command-dispatch.</li>
+      </ul>
+      <p>Moderation decisions made in good faith are final. Appeals may be submitted via direct message to the Operator.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="article">
+      <div class="article-number">// Article VII</div>
+      <h2>Intellectual Property</h2>
+      <p>The Sentinel-1156 name, emblem, and associated branding are the property of the Operator under the AegisNet project. Members may not reproduce, redistribute, or use these assets without written permission.</p>
+      <p>Content posted by Members (messages, images, media) remains their own. By posting in the Server, Members grant the Operator a non-exclusive right to feature such content in community highlights or promotional materials.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="article">
+      <div class="article-number">// Article VIII</div>
+      <h2>Limitation of Liability</h2>
+      <p>The Server and Bot are provided on an "as is" basis. The Operator makes no warranties regarding uptime, availability, or fitness for any particular purpose. To the maximum extent permitted by applicable law, the Operator is not liable for any direct, indirect, or consequential loss arising from use of the Server or Bot.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="article">
+      <div class="article-number">// Article IX</div>
+      <h2>Changes to These Terms</h2>
+      <p>The Operator reserves the right to update these Terms at any time. Material changes will be announced in #high-command-dispatch with reasonable notice. Continued use of the Server after changes take effect constitutes acceptance of the revised Terms.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="article">
+      <div class="article-number">// Article X</div>
+      <h2>Governing Law</h2>
+      <p>These Terms are governed by the laws of England and Wales. Any disputes shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+    </div>
+
+    <div class="contact-box">
+      <h3>Contact</h3>
+      <p>For questions regarding these Terms, appeals, or guild district requests, contact the Operator via Discord in the <strong>#alliance-table</strong> channel, or through the AegisNet website at <a href="https://aegisnet.org.uk">aegisnet.org.uk</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="inner">
+      <div class="brand">SENTINEL-1156</div>
+      <div class="links">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="https://aegisnet.org.uk">AegisNet</a>
+      </div>
+      <div class="copy">© 2026 AegisNet · aegisnet.org.uk</div>
+    </div>
+  </footer>
+
+</body>
+</html>
