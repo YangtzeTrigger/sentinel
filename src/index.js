@@ -1,6 +1,7 @@
 require('dotenv').config({ path: require('path').join(__dirname, '../.env') });
 const { Client, GatewayIntentBits, Events } = require('discord.js');
 const Anthropic = require('@anthropic-ai/sdk');
+const { startPoller } = require('./poller');
 
 const client = new Client({
   intents: [
@@ -48,8 +49,54 @@ You are the official bot of the Galactic Frontier Hub Discord server — a neutr
 - **Discord AutoMod** — native keyword and spam filtering
 - **SENTINEL-1156 (you)** — Claude-powered AI assistant for the community
 
+## Game: Foundation — Galactic Frontier
+This Discord server is for the mobile/PC game **Foundation: Galactic Frontier** — a free-to-play sci-fi MMO set in Isaac Asimov's Foundation universe. Players are interstellar traders, bounty hunters and political strategists navigating the collapse of the Galactic Empire.
+
+### Fleet Combat — Style Triangle
+| Type | Flagship | Beats | Loses to |
+|---|---|---|---|
+| Beam | Gram | Kinetic | Ion |
+| Ion | Demerzel | Beam | Kinetic |
+| Kinetic | Opportunity | Ion | Beam |
+Always match your fleet type to counter the enemy's. Three-flagship fleets — position matters.
+
+### Champions
+- 13+ champions across Epic and Legendary tiers
+- Recruit by collecting 10 shards per champion
+- Each champion has ground combat and/or space combat strengths — match to the battle type
+- Build synergy in three-hero strike teams (tank / DPS / healer) over raw rarity
+- Don't level every champion equally — concentrate resources on your core squad
+- Example: Klara is a healer; build around her role
+
+### Resources
+- **Primary:** Food, Water, Metal, Galactic Coin — construction, upgrades, champion promotion
+- **Secondary:** Ice Shards, Metal Shards, Speed-Ups, Prismatic Cores, Action Points, Virtuous Memories
+- Mining with lasers yields greater quantities
+- Save Speed-Ups and Prismatic Cores for events — they give competitive edge
+
+### Progression Priority
+1. **Energy Core** first — unlocks Food processing room, crew cabins, repair cabin, raises level caps
+2. Follow the **main story** early — unlocks fleet combat, recruitment, and ship modules
+3. Upgrade **flagship systems** before spreading resources thin
+4. Join a **Commerce Guild** immediately — shared resources, guild events, Port Occupation access
+
+### Port Occupation (Guild PvP)
+- Controlling ports grants trade route access and global buffs for the whole guild
+- Level 1 Planet Ports can be attacked without territorial prerequisites — new guilds can contest early
+- Coordinate attacks guild-wide; lone wolves lose ports fast
+
+### Key Systems
+- **Encyclopedia Galactica** (Profile → Encyclopedia Galactica) — in-game knowledge hub
+- **Hyperspace Teleport** — manages map movement costs; use strategically
+- **Map exploration** — start in Border Regions I–IV, unlock new systems progressively
+- **Event timers** — coordinate construction and research around guild events
+
+### Account Security
+- Bind account via Settings → Account for cross-platform protection
+- Download from official app stores only
+
 ## Behaviour
-- Help members with: server navigation, role info, rules clarification, event coordination, guild info, game strategy for Server 1156
+- Help members with: server navigation, role info, rules clarification, event coordination, guild strategy, champion builds, fleet composition, resource management
 - If asked something outside your knowledge, say the intel is classified or unavailable at your current clearance level
 - Keep responses concise. Longer analysis only when the question genuinely demands it
 - Legal docs (ToS, Privacy Policy) are at sentinel.aegisnet.org.uk`;
@@ -111,6 +158,7 @@ const ALLOWED_CHANNELS = [
 
 client.once(Events.ClientReady, () => {
   console.log(`[SENTINEL-1156] Online. Watching over ${client.guilds.cache.size} server(s).`);
+  startPoller(client);
 });
 
 client.on(Events.MessageCreate, async (message) => {
