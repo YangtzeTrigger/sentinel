@@ -1,7 +1,9 @@
 require('dotenv').config({ path: require('path').join(__dirname, '../.env') });
-const { Client, GatewayIntentBits, Events } = require('discord.js');
+const { Client, GatewayIntentBits, Events, ActivityType } = require('discord.js');
 const Anthropic = require('@anthropic-ai/sdk');
-const { startPoller } = require('./poller');
+const { startPoller }                        = require('./poller');
+const { handleCommand }                      = require('./commands');
+const { onMemberJoin, onMemberRemove, checkAutoMod } = require('./events');
 
 const client = new Client({
   intents: [
@@ -9,7 +11,7 @@ const client = new Client({
     GatewayIntentBits.GuildMembers,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
-  ]
+  ],
 });
 
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
@@ -47,7 +49,15 @@ You are the official bot of the Galactic Frontier Hub Discord server — a neutr
 - **Apollo** — event scheduling, RSVPs, reminders
 - **MEE6 / Arcane** — XP leveling, rank progression
 - **Discord AutoMod** — native keyword and spam filtering
-- **SENTINEL-1156 (you)** — Claude-powered AI assistant for the community
+- **SENTINEL-1156 (you)** — Claude-powered AI assistant and guardian
+
+## Prefix Commands (tell members about these)
+- \`!ping\` — latency check
+- \`!rules\` — the Frontier Codex
+- \`!guilds\` — guild registry
+- \`!recruit\` — recruitment board template
+- \`!intel\` — official resource links
+- \`!sentinel\` — bot info and links
 
 ## Game: Foundation — Galactic Frontier
 This Discord server is for the mobile/PC game **Foundation: Galactic Frontier** — a free-to-play sci-fi MMO set in Isaac Asimov's Foundation universe. Players are interstellar traders, bounty hunters and political strategists navigating the collapse of the Galactic Empire.
@@ -127,13 +137,12 @@ function chooseModel(text) {
 
 const conversationHistory = new Map();
 
-// Rate limiter: max 10 Claude calls per user per hour
 const rateLimiter = new Map();
-const RATE_LIMIT = 10;
+const RATE_LIMIT     = 10;
 const RATE_WINDOW_MS = 60 * 60 * 1000;
 
 function isRateLimited(userId) {
-  const now = Date.now();
+  const now    = Date.now();
   const record = rateLimiter.get(userId) || { count: 0, windowStart: now };
 
   if (now - record.windowStart > RATE_WINDOW_MS) {
@@ -142,7 +151,6 @@ function isRateLimited(userId) {
   }
 
   if (record.count >= RATE_LIMIT) return true;
-
   record.count++;
   rateLimiter.set(userId, record);
   return false;
@@ -158,13 +166,24 @@ const ALLOWED_CHANNELS = [
 
 client.once(Events.ClientReady, () => {
   console.log(`[SENTINEL-1156] Online. Watching over ${client.guilds.cache.size} server(s).`);
+  client.user.setPresence({
+    activities: [{ name: 'the Frontier | Server 1156', type: ActivityType.Watching }],
+    status: 'online',
+  });
   startPoller(client);
 });
+
+client.on(Events.GuildMemberAdd,    onMemberJoin);
+client.on(Events.GuildMemberRemove, onMemberRemove);
 
 client.on(Events.MessageCreate, async (message) => {
   if (message.author.bot) return;
 
-  const isMentioned = message.mentions.has(client.user);
+  await checkAutoMod(message);
+
+  if (await handleCommand(message)) return;
+
+  const isMentioned    = message.mentions.has(client.user);
   const inAllowedChannel = ALLOWED_CHANNELS.includes(message.channel.name);
   if (!isMentioned && !inAllowedChannel) return;
 
@@ -190,13 +209,7 @@ client.on(Events.MessageCreate, async (message) => {
     const response = await anthropic.messages.create({
       model,
       max_tokens: 1024,
-      system: [
-        {
-          type: 'text',
-          text: SYSTEM_PROMPT,
-          cache_control: { type: 'ephemeral' },
-        }
-      ],
+      system: [{ type: 'text', text: SYSTEM_PROMPT, cache_control: { type: 'ephemeral' } }],
       messages: history,
     });
 
