@@ -3,704 +3,342 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SENTINEL-1156 | Galactic Frontier Hub</title>
-  <meta name="description" content="The neutral hub for all guilds of Server 1156. Three hundred guilds. One frontier." />
+  <title>Terms of Service | SENTINEL-1156</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Exo+2:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Exo+2:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
       --deep-space:    #020817;
       --navy-dark:     #0A1628;
-      --navy-mid:      #0F2040;
       --electric-blue: #1D4ED8;
       --neon-blue:     #3B82F6;
       --glow-blue:     #60A5FA;
       --frontier-gold: #D4AF37;
       --gold-bright:   #F59E0B;
-      --gold-dim:      #92700A;
       --star-white:    #E2E8F0;
       --muted:         #64748B;
-      --border:        rgba(212,175,55,0.25);
-      --glow:          rgba(59,130,246,0.15);
+      --border:        rgba(212,175,55,0.2);
+      --text-body:     #94A3B8;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
     body {
-      background-color: var(--deep-space);
+      background: var(--deep-space);
       color: var(--star-white);
       font-family: 'Exo 2', sans-serif;
       min-height: 100vh;
-      overflow-x: hidden;
     }
-
-    /* STARFIELD */
-    .stars {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      background:
-        radial-gradient(ellipse at 20% 50%, rgba(29,78,216,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 20%, rgba(212,175,55,0.06) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 80%, rgba(29,78,216,0.05) 0%, transparent 50%);
-    }
-    .stars::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
-        radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
-        radial-gradient(1px 1px at 40% 10%, rgba(255,255,255,0.5) 0%, transparent 100%),
-        radial-gradient(1px 1px at 55% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
-        radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,0.6) 0%, transparent 100%),
-        radial-gradient(1px 1px at 85% 70%, rgba(255,255,255,0.4) 0%, transparent 100%),
-        radial-gradient(1px 1px at 15% 80%, rgba(255,255,255,0.5) 0%, transparent 100%),
-        radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.3) 0%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 33% 55%, rgba(255,255,255,0.5) 0%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 66% 88%, rgba(255,255,255,0.4) 0%, transparent 100%),
-        radial-gradient(1px 1px at 78% 45%, rgba(255,255,255,0.6) 0%, transparent 100%),
-        radial-gradient(1px 1px at 5%  90%, rgba(255,255,255,0.3) 0%, transparent 100%),
-        radial-gradient(1px 1px at 95% 55%, rgba(255,255,255,0.5) 0%, transparent 100%),
-        radial-gradient(1px 1px at 48% 75%, rgba(255,255,255,0.4) 0%, transparent 100%),
-        radial-gradient(2px  2px at 60% 20%, rgba(59,130,246,0.4)  0%, transparent 100%),
-        radial-gradient(2px  2px at 30% 70%, rgba(212,175,55,0.3)  0%, transparent 100%);
-    }
-
-    /* LAYOUT */
-    .wrapper {
-      position: relative;
-      z-index: 1;
-      max-width: 1100px;
-      margin: 0 auto;
+    nav {
+      background: rgba(2,8,23,0.95);
+      border-bottom: 1px solid var(--border);
       padding: 0 24px;
     }
-
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(2,8,23,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    nav .wrapper {
+    nav .inner {
+      max-width: 900px;
+      margin: 0 auto;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 64px;
     }
     .nav-brand {
       font-family: 'Orbitron', sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       letter-spacing: 0.15em;
       color: var(--frontier-gold);
       text-decoration: none;
     }
     .nav-brand span { color: var(--glow-blue); }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      font-family: 'Exo 2', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
+    .nav-back {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
       color: var(--muted);
       text-decoration: none;
       text-transform: uppercase;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--glow-blue); }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 64px;
+    .nav-back:hover { color: var(--glow-blue); }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
     }
-    .hero .wrapper {
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 64px;
-      align-items: center;
-      padding-top: 64px;
-      padding-bottom: 64px;
+    .doc-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 40px;
+      margin-bottom: 48px;
     }
-    .hero-eyebrow {
+    .doc-eyebrow {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      font-weight: 500;
+      font-size: 11px;
       letter-spacing: 0.25em;
       color: var(--neon-blue);
       text-transform: uppercase;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      margin-bottom: 12px;
     }
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 32px;
-      height: 1px;
-      background: var(--neon-blue);
-    }
-    .hero h1 {
+    .doc-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(36px, 5vw, 64px);
-      font-weight: 900;
-      line-height: 1.05;
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 700;
       letter-spacing: 0.06em;
       color: var(--star-white);
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
-    .hero h1 .gold { color: var(--frontier-gold); }
-    .hero-sub {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(14px, 2vw, 18px);
-      font-weight: 400;
-      letter-spacing: 0.18em;
+    .doc-title span { color: var(--frontier-gold); }
+    .doc-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
       color: var(--muted);
-      margin-bottom: 24px;
-      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
-    .hero-divider {
-      width: 80px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--frontier-gold), transparent);
-      margin-bottom: 28px;
-    }
-    .hero-desc {
-      font-size: 16px;
+    .doc-intro {
+      background: rgba(29,78,216,0.07);
+      border-left: 3px solid var(--neon-blue);
+      padding: 20px 24px;
+      margin-bottom: 48px;
+      font-size: 14px;
       font-weight: 300;
       line-height: 1.75;
-      color: #94A3B8;
-      max-width: 540px;
-      margin-bottom: 40px;
+      color: var(--text-body);
     }
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 32px;
-      background: linear-gradient(135deg, var(--electric-blue), var(--neon-blue));
-      color: #fff;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-decoration: none;
-      text-transform: uppercase;
-      border: none;
-      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-      transition: all 0.25s;
-      box-shadow: 0 0 24px rgba(59,130,246,0.35);
-    }
-    .btn-primary:hover {
-      background: linear-gradient(135deg, var(--neon-blue), var(--glow-blue));
-      box-shadow: 0 0 40px rgba(59,130,246,0.55);
-      transform: translateY(-2px);
-    }
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 13px 32px;
-      background: transparent;
-      color: var(--frontier-gold);
-      font-family: 'Orbitron', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-decoration: none;
-      text-transform: uppercase;
-      border: 1px solid var(--frontier-gold);
-      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-      transition: all 0.25s;
-    }
-    .btn-secondary:hover {
-      background: rgba(212,175,55,0.08);
-      box-shadow: 0 0 24px rgba(212,175,55,0.2);
-    }
-
-    /* EMBLEM */
-    .hero-emblem {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .emblem-ring {
-      position: relative;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      border: 2px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(circle at center, rgba(29,78,216,0.12) 0%, transparent 70%);
-      box-shadow:
-        0 0 60px rgba(59,130,246,0.15),
-        inset 0 0 60px rgba(29,78,216,0.08);
-      animation: pulse-ring 4s ease-in-out infinite;
-    }
-    @keyframes pulse-ring {
-      0%, 100% { box-shadow: 0 0 60px rgba(59,130,246,0.15), inset 0 0 60px rgba(29,78,216,0.08); }
-      50%       { box-shadow: 0 0 80px rgba(59,130,246,0.28), inset 0 0 80px rgba(29,78,216,0.15); }
-    }
-    .emblem-ring img {
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    .emblem-placeholder {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(29,78,216,0.2) 0%, transparent 70%);
-      border: 2px solid rgba(59,130,246,0.3);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    .emblem-placeholder .icon {
-      font-size: 48px;
-      opacity: 0.6;
-    }
-    .emblem-placeholder .label {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 10px;
+    .article { margin-bottom: 40px; }
+    .article-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
       letter-spacing: 0.2em;
       color: var(--neon-blue);
-      opacity: 0.7;
+      text-transform: uppercase;
+      margin-bottom: 8px;
     }
-
-    /* STATS BAR */
-    .stats-bar {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: rgba(10,22,40,0.6);
-      backdrop-filter: blur(8px);
-      padding: 24px 0;
-    }
-    .stats-bar .wrapper {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 24px;
-    }
-    .stat {
-      text-align: center;
-    }
-    .stat-value {
+    .article h2 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 28px;
-      font-weight: 700;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       color: var(--frontier-gold);
-      display: block;
-    }
-    .stat-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      color: var(--muted);
+      margin-bottom: 14px;
       text-transform: uppercase;
-      margin-top: 4px;
     }
-
-    /* SECTION */
-    section { padding: 96px 0; }
-    .section-eyebrow {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.25em;
-      color: var(--neon-blue);
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .section-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(24px, 3vw, 36px);
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      color: var(--star-white);
-      margin-bottom: 16px;
-    }
-    .section-title .gold { color: var(--frontier-gold); }
-    .section-lead {
+    .article p {
       font-size: 15px;
       font-weight: 300;
-      line-height: 1.75;
-      color: #94A3B8;
-      max-width: 600px;
-      margin-bottom: 56px;
+      line-height: 1.8;
+      color: var(--text-body);
+      margin-bottom: 12px;
     }
-
-    /* FEATURE GRID */
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
+    .article ul { padding-left: 20px; margin-bottom: 12px; }
+    .article li {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-body);
+      margin-bottom: 6px;
     }
-    .feature-card {
-      background: rgba(10,22,40,0.7);
+    .article li::marker { color: var(--neon-blue); }
+    .warning-box {
+      background: rgba(212,175,55,0.06);
+      border-left: 3px solid var(--frontier-gold);
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--text-body);
+    }
+    .warning-box strong { color: var(--gold-bright); font-weight: 500; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+    .contact-box {
+      background: rgba(10,22,40,0.8);
       border: 1px solid var(--border);
-      padding: 32px;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s;
+      padding: 28px 32px;
+      margin-top: 48px;
     }
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--electric-blue), var(--frontier-gold));
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .feature-card:hover { border-color: rgba(59,130,246,0.4); transform: translateY(-4px); }
-    .feature-card:hover::before { opacity: 1; }
-    .feature-icon {
-      font-size: 32px;
-      margin-bottom: 16px;
-      display: block;
-    }
-    .feature-title {
+    .contact-box h3 {
       font-family: 'Orbitron', sans-serif;
       font-size: 14px;
       font-weight: 600;
       letter-spacing: 0.1em;
       color: var(--frontier-gold);
-      margin-bottom: 10px;
       text-transform: uppercase;
-    }
-    .feature-desc {
-      font-size: 14px;
-      font-weight: 300;
-      line-height: 1.65;
-      color: #94A3B8;
-    }
-
-    /* GUILDS */
-    .guilds-section { background: rgba(10,22,40,0.4); }
-    .guild-note {
-      background: rgba(29,78,216,0.08);
-      border: 1px solid rgba(59,130,246,0.2);
-      padding: 24px 32px;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      max-width: 720px;
-    }
-    .guild-note-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
-    .guild-note-text { font-size: 14px; font-weight: 300; line-height: 1.7; color: #94A3B8; }
-    .guild-note-text strong { color: var(--glow-blue); font-weight: 500; }
-
-    /* CTA */
-    .cta-section {
-      text-align: center;
-      padding: 96px 0;
-    }
-    .cta-box {
-      background: linear-gradient(135deg, rgba(10,22,40,0.9) 0%, rgba(29,78,216,0.08) 100%);
-      border: 1px solid var(--border);
-      padding: 64px 48px;
-      max-width: 720px;
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-box::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--frontier-gold), transparent);
-    }
-    .cta-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(20px, 3vw, 30px);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--star-white);
       margin-bottom: 12px;
     }
-    .cta-sub {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      letter-spacing: 0.15em;
-      color: var(--frontier-gold);
-      margin-bottom: 16px;
-    }
-    .cta-desc {
-      font-size: 15px;
-      font-weight: 300;
-      line-height: 1.75;
-      color: #94A3B8;
-      margin-bottom: 40px;
-    }
-    .cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-
-    /* FOOTER */
+    .contact-box p { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--text-body); }
+    .contact-box a { color: var(--glow-blue); text-decoration: none; }
     footer {
       border-top: 1px solid var(--border);
-      padding: 40px 0;
+      padding: 28px 24px;
       background: rgba(2,8,23,0.9);
     }
-    footer .wrapper {
+    footer .inner {
+      max-width: 900px;
+      margin: 0 auto;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 16px;
     }
-    .footer-brand {
+    footer .brand {
       font-family: 'Orbitron', sans-serif;
       font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
       color: var(--frontier-gold);
+      letter-spacing: 0.12em;
     }
-    .footer-brand span { color: var(--muted); font-weight: 400; }
-    .footer-links { display: flex; gap: 24px; }
-    .footer-links a {
+    footer .links { display: flex; gap: 20px; }
+    footer .links a {
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       color: var(--muted);
       text-decoration: none;
-      text-transform: uppercase;
       transition: color 0.2s;
     }
-    .footer-links a:hover { color: var(--glow-blue); }
-    .footer-copy {
-      font-size: 12px;
-      color: var(--muted);
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* SCAN LINE EFFECT */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0,0,0,0.03) 2px,
-        rgba(0,0,0,0.03) 4px
-      );
-      pointer-events: none;
-    }
-
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .hero-eyebrow { animation: fadeUp 0.6s ease both; }
-    .hero h1      { animation: fadeUp 0.6s ease 0.1s both; }
-    .hero-sub     { animation: fadeUp 0.6s ease 0.2s both; }
-    .hero-divider { animation: fadeUp 0.6s ease 0.3s both; }
-    .hero-desc    { animation: fadeUp 0.6s ease 0.4s both; }
-    .hero-actions { animation: fadeUp 0.6s ease 0.5s both; }
-    .emblem-ring  { animation: fadeUp 0.8s ease 0.3s both; }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .hero .wrapper { grid-template-columns: 1fr; gap: 48px; }
-      .hero-emblem { order: -1; }
-      .emblem-ring { width: 240px; height: 240px; }
-      .emblem-ring img { width: 210px; height: 210px; }
-      .nav-links { display: none; }
-      footer .wrapper { flex-direction: column; align-items: flex-start; }
-    }
+    footer .links a:hover { color: var(--glow-blue); }
   </style>
 </head>
 <body>
 
-  <div class="stars"></div>
+<nav>
+  <div class="inner">
+    <a href="/" class="nav-brand">SENTINEL<span>-1156</span></a>
+    <a href="/" class="nav-back">← Back to Hub</a>
+  </div>
+</nav>
 
-  <!-- NAV -->
-  <nav>
-    <div class="wrapper">
-      <a href="/" class="nav-brand">SENTINEL<span>-1156</span></a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#guilds">Guilds</a></li>
-        <li><a href="#join">Join</a></li>
-        <li><a href="/terms">Terms</a></li>
-        <li><a href="/privacy">Privacy</a></li>
-      </ul>
-    </div>
-  </nav>
+<main>
+  <div class="doc-header">
+    <div class="doc-eyebrow">Legal Document</div>
+    <h1 class="doc-title"><span>Frontier</span> Codex<br/>Terms of Service</h1>
+    <div class="doc-meta">Effective Date: 27 May 2026 &nbsp;·&nbsp; Jurisdiction: England &nbsp;·&nbsp; Version 1.0</div>
+  </div>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="wrapper">
-      <div class="hero-content">
-        <div class="hero-eyebrow">Server 1156 · Galactic Frontier Hub</div>
-        <h1><span class="gold">SENTINEL</span><br/>-1156</h1>
-        <div class="hero-sub">Guardian of the Frontier</div>
-        <div class="hero-divider"></div>
-        <p class="hero-desc">
-          The neutral command hub for all guilds of Server 1156. 
-          A community built on Honour, Discipline, and Unity — 
-          where every guild has a home and every warrior has a voice. 
-          Three hundred guilds. One frontier.
-        </p>
-        <div class="hero-actions">
-          <a href="https://discord.gg/Dkut7cG2SZ" class="btn-primary">
-            ⚔ Join the Frontier
-          </a>
-          <a href="#about" class="btn-secondary">
-            ▸ Learn More
-          </a>
-        </div>
-      </div>
-      <div class="hero-emblem">
-        <div class="emblem-ring">
-          <!-- Replace src with your actual Sentinel-1156 image -->
-          <div class="emblem-placeholder">
-            <span class="icon">⚔</span>
-            <span class="label">Sentinel-1156</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="doc-intro">
+    These Terms of Service govern your use of the Sentinel-1156 Discord bot and your participation in the Server 1156 Galactic Frontier Hub Discord community. By using the bot or joining the server, you agree to these terms. If you do not agree, do not use the service.
+  </div>
 
-  <!-- STATS -->
-  <div class="stats-bar">
-    <div class="wrapper">
-      <div class="stat">
-        <span class="stat-value">1156</span>
-        <div class="stat-label">Game Server</div>
-      </div>
-      <div class="stat">
-        <span class="stat-value">300+</span>
-        <div class="stat-label">Guilds Welcome</div>
-      </div>
-      <div class="stat">
-        <span class="stat-value">∞</span>
-        <div class="stat-label">The Frontier</div>
-      </div>
-      <div class="stat">
-        <span class="stat-value">1</span>
-        <div class="stat-label">Purpose</div>
-      </div>
+  <div class="article">
+    <div class="article-number">Article 01</div>
+    <h2>Acceptance of Terms</h2>
+    <p>By interacting with the Sentinel-1156 bot (the "Bot") or joining the Server 1156 Galactic Frontier Hub (the "Server"), you confirm that you:</p>
+    <ul>
+      <li>Are at least 13 years of age, or the minimum age required by your country's laws to use Discord.</li>
+      <li>Have read, understood, and agree to be bound by these Terms.</li>
+      <li>Agree to comply with Discord's own <a href="https://discord.com/terms" style="color:var(--glow-blue)">Terms of Service</a> and <a href="https://discord.com/guidelines" style="color:var(--glow-blue)">Community Guidelines</a>.</li>
+    </ul>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="article">
+    <div class="article-number">Article 02</div>
+    <h2>Description of Service</h2>
+    <p>Sentinel-1156 is an AI-assisted Discord bot designed to serve the Server 1156 community. It provides moderation support, game intelligence, server navigation assistance, and automated information delivery for Foundation: Galactic Frontier players.</p>
+    <p>The Bot operates within Discord's platform and is subject to Discord's limitations and policies. The Server is a community hub for the Foundation: Galactic Frontier game and is not affiliated with or endorsed by the game's developers.</p>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="article">
+    <div class="article-number">Article 03</div>
+    <h2>Community Rules — The Frontier Codex</h2>
+    <p>All members of the Server must abide by the Frontier Codex. Violations are handled at moderator discretion. The following conduct will result in removal:</p>
+    <ul>
+      <li>Harassment, hate speech, or targeted abuse of any member.</li>
+      <li>Spam, flooding, or repeated identical messages.</li>
+      <li>Doxxing or sharing personal information about any member without consent.</li>
+      <li>Posting illegal content or material that violates Discord's Terms of Service.</li>
+      <li>Unsolicited promotion or recruitment outside designated channels.</li>
+      <li>Impersonating moderators, administrators, or other members.</li>
+    </ul>
+    <div class="warning-box">
+      <strong>Enforcement:</strong> Severity determines outcome — warning → mute → kick → permanent ban. Moderator decisions are final. Appeal via DM to an Admin.
     </div>
   </div>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="wrapper">
-      <div class="section-eyebrow">// What Is This</div>
-      <h2 class="section-title">The <span class="gold">Galactic</span> Frontier Hub</h2>
-      <p class="section-lead">
-        Sentinel-1156 is the Discord community server for all players on Server 1156. 
-        Neutral ground. No single guild dominates. Every alliance has a seat at the table.
-      </p>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <span class="feature-icon">🌐</span>
-          <div class="feature-title">Cross-Guild Community</div>
-          <p class="feature-desc">Every guild on Server 1156 is welcome. Claim your guild district, coordinate with allies, and represent your colours in a shared frontier.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon">⚔️</span>
-          <div class="feature-title">Frontier Operations</div>
-          <p class="feature-desc">Strategy intel, battle reports, trade posts, alliance negotiations — all the tools needed to coordinate across Server 1156.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon">🤖</span>
-          <div class="feature-title">Sentinel Bot</div>
-          <p class="feature-desc">Automated onboarding, role management, event scheduling, and moderation. The Sentinel watches the frontier so you don't have to.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon">🛡️</span>
-          <div class="feature-title">Honour the Code</div>
-          <p class="feature-desc">Built on the values of Honour, Discipline, and Unity. The Frontier Codex governs all — guild rivalries stay in the game, not the community.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon">📡</span>
-          <div class="feature-title">Live Intelligence</div>
-          <p class="feature-desc">Game patch notes, server meta updates, and community announcements delivered directly via Command Frequency channels.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon">🌟</span>
-          <div class="feature-title">Rank &amp; Progress</div>
-          <p class="feature-desc">XP leveling rewards active citizens with visible progression. Scout → Frontier Citizen → Veteran — earn your place on the frontier.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <hr class="divider" />
 
-  <!-- GUILDS -->
-  <section class="guilds-section" id="guilds">
-    <div class="wrapper">
-      <div class="section-eyebrow">// Guild Districts</div>
-      <h2 class="section-title">Every Guild. <span class="gold">One Hub.</span></h2>
-      <p class="section-lead">
-        Each guild on Server 1156 can claim a private district — role-gated channels 
-        visible only to your members, while sharing the common frontier with all.
-      </p>
-      <div class="guild-note">
-        <div class="guild-note-icon">🏛️</div>
-        <div class="guild-note-text">
-          <strong>Guild leaders:</strong> To claim a district for your guild, join the server and contact a Frontier Admin in the <strong>#alliance-table</strong> channel. 
-          We'll set up your private category with dedicated strategy, lounge, and war-room channels — yours to manage, within the Frontier Codex.
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="article">
+    <div class="article-number">Article 04</div>
+    <h2>AI-Generated Content</h2>
+    <p>Sentinel-1156 uses an AI language model to generate responses. You acknowledge that:</p>
+    <ul>
+      <li>AI-generated responses may be inaccurate, incomplete, or out of date.</li>
+      <li>Responses should not be treated as authoritative game guides, legal advice, financial advice, or professional counsel of any kind.</li>
+      <li>The operator of the Bot is not liable for decisions made based on Bot responses.</li>
+      <li>Conversations with the Bot may be processed by the Anthropic AI API. Do not share sensitive personal information with the Bot.</li>
+    </ul>
+  </div>
 
-  <!-- CTA -->
-  <section class="cta-section" id="join">
-    <div class="wrapper">
-      <div class="cta-box">
-        <div class="cta-sub">// Deploy to Frontier</div>
-        <h2 class="cta-title">Ready to Join Server 1156?</h2>
-        <p class="cta-desc">
-          Whether you're a solo warrior, a guild leader, or a frontier diplomat — 
-          your place in the Galactic Frontier Hub is waiting. 
-          Answer the call. Hold the line.
-        </p>
-        <div class="cta-actions">
-          <a href="https://discord.gg/Dkut7cG2SZ" class="btn-primary">
-            ⚔ Enter the Frontier
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <hr class="divider" />
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="wrapper">
-      <div class="footer-brand">
-        SENTINEL-1156 <span>· A project of AegisNet</span>
-      </div>
-      <div class="footer-links">
-        <a href="/terms">Terms of Service</a>
-        <a href="/privacy">Privacy Policy</a>
-        <a href="https://aegisnet.org.uk">AegisNet</a>
-      </div>
-      <div class="footer-copy">© 2026 AegisNet · aegisnet.org.uk</div>
+  <div class="article">
+    <div class="article-number">Article 05</div>
+    <h2>Permitted Use</h2>
+    <p>You may use the Bot and Server for personal, non-commercial purposes in connection with the Foundation: Galactic Frontier community. You may not:</p>
+    <ul>
+      <li>Attempt to abuse, exploit, or circumvent Bot rate limits or moderation systems.</li>
+      <li>Use the Bot to generate or distribute spam, misinformation, or harmful content.</li>
+      <li>Attempt to extract, scrape, or reverse-engineer Bot responses at scale.</li>
+      <li>Use the Bot for any unlawful purpose or in violation of applicable law.</li>
+    </ul>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="article">
+    <div class="article-number">Article 06</div>
+    <h2>Termination</h2>
+    <p>We reserve the right to remove any member from the Server or restrict their access to the Bot at any time, for any reason, including but not limited to violation of these Terms or the Frontier Codex. Removal from the Server does not constitute a right to refund of any kind, as the service is provided free of charge.</p>
+    <p>You may leave the Server or stop using the Bot at any time.</p>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="article">
+    <div class="article-number">Article 07</div>
+    <h2>Disclaimers and Limitation of Liability</h2>
+    <p>The Sentinel-1156 Bot and Server 1156 community are provided on an "as is" basis. We make no warranties, express or implied, regarding uptime, accuracy of AI responses, or the conduct of other community members.</p>
+    <p>To the maximum extent permitted by applicable law, the operators of Sentinel-1156 and Server 1156 shall not be liable for any indirect, incidental, or consequential damages arising from your use of the Bot or Server.</p>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="article">
+    <div class="article-number">Article 08</div>
+    <h2>Changes to These Terms</h2>
+    <p>We may update these Terms from time to time. The effective date at the top of this page will reflect any changes. Continued use of the Bot or Server following an update constitutes acceptance of the revised Terms. Significant changes will be announced in the Server's announcements channel.</p>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="article">
+    <div class="article-number">Article 09</div>
+    <h2>Governing Law</h2>
+    <p>These Terms are governed by the laws of England and Wales. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+  </div>
+
+  <div class="contact-box">
+    <h3>Contact</h3>
+    <p>
+      Questions about these Terms? Reach an Admin via the Server:
+      <a href="https://discord.gg/uXTpCdmES5">discord.gg/Dkut7cG2SZ</a><br/>
+      Or visit the hub: <a href="https://sentinel.aegisnet.org.uk">sentinel.aegisnet.org.uk</a>
+    </p>
+  </div>
+</main>
+
+<footer>
+  <div class="inner">
+    <div class="brand">SENTINEL-1156</div>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/terms">Terms</a>
+      <a href="/privacy">Privacy</a>
     </div>
-  </footer>
+  </div>
+</footer>
 
 </body>
 </html>

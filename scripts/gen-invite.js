@@ -11,7 +11,7 @@ client.once('clientReady', async () => {
     c.name === 'frontier-beacon' && c.isTextBased()
   ) || guild.channels.cache.find(c => c.isTextBased());
 
-  const invite = await channel.createInvite({ maxAge: 0, maxUses: 0, unique: false });
+  const invite = await channel.createInvite({ maxAge: 0, maxUses: 0, unique: true });
   console.log(invite.url);
   process.exit(0);
 });
